@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BaseProduct>
+@section Scripts {
+    <script src="../wwwroot/client/polyfills.7d99fe739f19bbf4acee.js" asp-append-version="true"></script>
+    <script src="../wwwroot/client/runtime.4b1540bf51da5ef20c67.js" asp-append-version="true"></script>
+    <script src="../wwwroot/client/main.15401397c3a84c42fc48.js" asp-append-version="true"></script>
+}
+@section Header{
+    <link href="../wwwroot/client/styles.31d6cfe0d16ae931b73c.css" rel="stylesheet" asp-append-version="true" />
+}
+
+<h1>Shop</h1>
+    <div class="row">
+    @foreach (var p in Model)
+    {
+        <div class="col-md-3">
+            <div class="border bg-light rounded p-1">
+                <div class="product-info">
+                    <img src="../img/@(p.ImgId).jpg" class="img-fluid", alt="@p.Name" />
+                    <h3>@p.Category</h3>
+                    <ul class="product-prop">
+                        <li>Title: @p.Name</li>
+                        <li>Price: @p.Price</li>
+                        <li>Description: @p.Description</li>
+                    </ul>
+                    <button id="button" class="btn btn-success">Buy</button>
+                </div>
+            </div>
+        </div>
+    }
+    </div>

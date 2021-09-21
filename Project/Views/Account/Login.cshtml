@@ -1,0 +1,30 @@
+﻿@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+<script src="~/lib/jquerys/dist/jquery.min.js"></script>
+<script src="~/lib/jquerys/dist/jquery.slim.js"></script>
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Username">Username</label>
+                <input asp-for="Username" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" type="password" />
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input asp-for="RememberMe" type="checkbox" />
+                    <label asp-for="RememberMe">Remember me?</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmoShop", "Project\CosmoShop.csproj", "{943F0243-B834-4A56-A05D-459A81F81185}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{943F0243-B834-4A56-A05D-459A81F81185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{943F0243-B834-4A56-A05D-459A81F81185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{943F0243-B834-4A56-A05D-459A81F81185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{943F0243-B834-4A56-A05D-459A81F81185}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13B7999C-8C24-4C98-A340-BFF2FE219652}
+	EndGlobalSection
+EndGlobal
