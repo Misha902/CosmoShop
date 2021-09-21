@@ -5,8 +5,8 @@ namespace CosmoShop.Data
 {
     public interface ICosmoShopRepository
     {
-        IEnumerable<BaseProduct> GetAllProducts();
-        IEnumerable<BaseProduct> GetProductsByCategory(string category);
+        IEnumerable<SpaceObject> GetAllProducts();
+        IEnumerable<SpaceObject> GetProductsByCategory(string category);
         bool SaveChanges();
     }
 }

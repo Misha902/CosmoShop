@@ -13,15 +13,15 @@ namespace CosmoShop.Data
             _context = context;
         }
 
-        public IEnumerable<BaseProduct> GetAllProducts()
+        public IEnumerable<SpaceObject> GetAllProducts()
         {
-            return _context.BaseProducts
+            return _context.SpaceObjects
                            .OrderBy(p => p.Name)
                            .ToList();
         }
-        public IEnumerable<BaseProduct> GetProductsByCategory(string category)
+        public IEnumerable<SpaceObject> GetProductsByCategory(string category)
         {
-            return _context.BaseProducts
+            return _context.SpaceObjects
                            .Where(p => p.Category == category)
                            .ToList();
         }

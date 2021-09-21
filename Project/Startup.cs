@@ -24,7 +24,9 @@ namespace CosmoShop
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CosmoShopContext>();
+            string connection = _config.GetConnectionString("DefaultConnection");
+            services.AddDbContext<CosmoShopContext>(options => options.UseSqlServer(connection));
+
             services.AddIdentity<StoreUser, IdentityRole>(cfg =>
                 {
                     cfg.User.RequireUniqueEmail = true;
