@@ -6,25 +6,26 @@
 <div class="row">
     <div class="col-md-6 offset-3">
         <form method="post" asp-controller="Account" asp-action="Login">
-                <div>
-                    <label asp-for="Username"></label><br />
-                    <input asp-for="Username" />
-                    <span asp-validation-for="Username"></span>
-                </div>
-                <div>
-                    <label asp-for="Password"></label><br />
-                    <input asp-for="Password" type="password" />
-                    <span asp-validation-for="Password"></span>
-                </div>
-                <div>
-                    <input asp-for="RememberMe" type="checkbox" />
-                    <label asp-for="RememberMe">Remember me?</label>
-                </div>
-                <div>
-                    <br />
-                    <input type="submit" value="Login" class="btn btn-primary" />
-                </div>
-                    <a href="~/Account/Register">Registration</a>
+            @Html.ValidationSummary(true)
+            <div>
+                <label asp-for="Username"></label><br />
+                <input asp-for="Username" />
+                <span asp-validation-for="Username"></span>
+            </div>
+            <div>
+                <label asp-for="Password"></label><br />
+                <input asp-for="Password" type="password" />
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div>
+                <input asp-for="RememberMe" type="checkbox" />
+                <label asp-for="RememberMe">Remember me?</label>
+            </div>
+            <div>
+                <br />
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+            <a href="~/Account/Register">Registration</a>
         </form>
     </div>
 </div>

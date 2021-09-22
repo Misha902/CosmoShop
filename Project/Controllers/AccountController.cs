@@ -48,22 +48,21 @@ namespace CosmoShop.Controllers
                     false);
                 if (result.Succeeded)
                 {
-                    if (Request.Query.Keys.Contains("ReturnUrl"))
+                    if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
                     {
-                        Redirect(Request.Query["ReturnUrl"].First());
+                        return Redirect(model.ReturnUrl);
                     }
                     else
                     {
-                        RedirectToAction("App", "Shop");
+                        return RedirectToAction("Shop", "App");
                     }
                 }
                 else
                 {
-                    
                     ModelState.AddModelError("", "Username or password is invalid");
                 }
-            }           
-            return View();
+            }
+            return View(model);
         }
 
         [HttpGet]
@@ -133,7 +132,7 @@ namespace CosmoShop.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("App", "Shop");
+                    return RedirectToAction("Shop", "App");
                 }
                 else
                 {
