@@ -56,9 +56,13 @@ namespace CosmoShop.Controllers
                     {
                         RedirectToAction("App", "Shop");
                     }
-                } 
-            }
-            ModelState.AddModelError("", "Failed to login");
+                }
+                else
+                {
+                    
+                    ModelState.AddModelError("", "Username or password is invalid");
+                }
+            }           
             return View();
         }
 
@@ -129,7 +133,7 @@ namespace CosmoShop.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "App");
+                    return RedirectToAction("App", "Shop");
                 }
                 else
                 {

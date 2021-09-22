@@ -30,6 +30,11 @@ namespace CosmoShop
             services.AddIdentity<StoreUser, IdentityRole>(cfg =>
                 {
                     cfg.User.RequireUniqueEmail = true;
+                    cfg.Password.RequiredLength = 5;
+                    cfg.Password.RequireNonAlphanumeric = false;
+                    cfg.Password.RequireLowercase = false;
+                    cfg.Password.RequireUppercase = false;
+                    cfg.Password.RequireDigit = false;
                 })
                  .AddEntityFrameworkStores<CosmoShopContext>();
             services.AddAuthentication();
