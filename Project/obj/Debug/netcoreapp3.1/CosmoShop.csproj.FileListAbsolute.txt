@@ -390,3 +390,4 @@ C:\Users\DIMA\source\repos\CosmoShop\Project\bin\Debug\netcoreapp3.1\runtimes\wi
 C:\Users\DIMA\source\repos\CosmoShop\Project\obj\Debug\netcoreapp3.1\CosmoShop.Views.pdb
 C:\Users\DIMA\source\repos\CosmoShop\Project\obj\Debug\netcoreapp3.1\CosmoShop.csproj.CopyComplete
 C:\Users\DIMA\source\repos\CosmoShop\Project\obj\Debug\netcoreapp3.1\CosmoShop.genruntimeconfig.cache
+C:\Users\DIMA\source\repos\CosmoShop\Project\bin\Debug\netcoreapp3.1\appsettings.json

@@ -15,9 +15,7 @@ namespace CosmoShop.Data
 
         public IEnumerable<SpaceObject> GetAllProducts()
         {
-            return _context.SpaceObjects
-                           .OrderBy(p => p.Name)
-                           .ToList();
+            return _context.SpaceObjects.ToList();
         }
         public IEnumerable<SpaceObject> GetProductsByCategory(string category)
         {

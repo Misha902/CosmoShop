@@ -10,7 +10,7 @@ namespace CosmoShop.Data
         public CosmoShopContext(DbContextOptions<CosmoShopContext> options)
             : base(options)
         {
-            Database.EnsureDeleted();
+         //   Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         public DbSet<SpaceObject> SpaceObjects { get; set; }

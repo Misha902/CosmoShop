@@ -8,7 +8,7 @@
         public string Description { get; set; }
         public string Category { get; set; }
         public ulong Price { get; set; }
-        public int ImgId { get; set; }
+        public string ImgId { get; set; }
         public string WeightShort { get; set; }
         public string WeightFull { get; set; }
         public string AgeShort { get; set; }
@@ -16,7 +16,7 @@
         public int ObservedSatellites { get; set; }
         public string VolumeShort { get; set; }
         public string VolumeFull { get; set; }
-        public decimal RotationPeriod { get; set; }
+        public double RotationPeriod { get; set; }
         public string PlanetarySystem { get; set; }
     }
 }
