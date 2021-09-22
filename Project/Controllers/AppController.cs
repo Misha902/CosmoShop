@@ -54,7 +54,7 @@ namespace CosmoShop.Controllers
             return View();
         }
 
-       // [Authorize]
+        [Authorize]
         public IActionResult Shop()
         {          
             return View(_context.GetAllProducts());

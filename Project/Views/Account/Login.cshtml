@@ -2,28 +2,30 @@
 @{
     ViewBag.Title = "Login";
 }
-<script src="~/lib/jquerys/dist/jquery.min.js"></script>
-<script src="~/lib/jquerys/dist/jquery.slim.js"></script>
 
 <div class="row">
     <div class="col-md-6 offset-3">
         <form method="post">
-            <div class="form-group">
-                <label asp-for="Username">Username</label>
+            <div>
+                <label asp-for="Username"></label><br />
                 <input asp-for="Username" />
+                <span asp-validation-for="Username"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Password">Password</label>
+            <div>
+                <label asp-for="Password"></label><br />
                 <input asp-for="Password" type="password" />
+                <span asp-validation-for="Password"></span>
             </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input asp-for="RememberMe" type="checkbox" />
-                    <label asp-for="RememberMe">Remember me?</label>
-                </div>
+            <div>
+                <input asp-for="RememberMe" type="checkbox" />
+                <label asp-for="RememberMe">Remember me?</label>
             </div>
-            <div class="form-group">
+            <div>
+                <br />
                 <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+            <div>
+                <a href="~/Account/Register">Registration</a>
             </div>
         </form>
     </div>

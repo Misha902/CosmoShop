@@ -5,7 +5,6 @@ using Microsoft.IdentityModel.Tokens;
 using CosmoShop.Data.Entities;
 using CosmoShop.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -84,10 +83,10 @@ namespace CosmoShop.Controllers
                         // Create the Token
                         var claims = new[]
                         {
-              new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-              new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-              new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName)
-            };
+                             new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+                             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                             new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName)
+                        };
 
                         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
 
@@ -112,6 +111,35 @@ namespace CosmoShop.Controllers
             }
 
             return BadRequest();
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new StoreUser { Email = model.Email, UserName = model.UserName, EmailConfirmed = true};
+
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    await _signInManager.SignInAsync(user, false);
+                    return RedirectToAction("Index", "App");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
+            }
+            return View(model);
         }
     }
 }
