@@ -1,0 +1,16 @@
+﻿@model SpaceObject
+
+<div>
+    <h2>
+        @Model.Name
+    </h2>
+    <h2>
+        @Model.Category
+    </h2>
+    <div>
+        <img class="img-block" src="~/img/@(Model.ImgId).jpg"/>
+    </div>
+</div>
+<div>
+    @Html.Raw(Model.Description)
+</div>
