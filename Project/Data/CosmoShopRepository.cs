@@ -17,6 +17,12 @@ namespace CosmoShop.Data
         {
             return _context.SpaceObjects.ToList();
         }
+        public SpaceObject GetProductById(int id)
+        {
+            return _context.SpaceObjects
+                .Where(p => p.Id == id)
+                .FirstOrDefault();
+        }
         public IEnumerable<SpaceObject> GetProductsByCategory(string category)
         {
             return _context.SpaceObjects

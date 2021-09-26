@@ -55,13 +55,14 @@ namespace CosmoShop.Controllers
         }
 
         [Authorize]
-        public IActionResult Shop(int id)
-        {        
-            if (id != default)
-            {
-                return View("Show", _context.GetProductById(id));
-            }
+        public IActionResult Shop()
+        {
             return View(_context.GetAllProducts());
+        }
+        public IActionResult Show(int id)
+        {
+
+            return View("Show", _context.GetProductById(id));
         }
     }
 }

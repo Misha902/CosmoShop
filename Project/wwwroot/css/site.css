@@ -3,3 +3,7 @@
     display: table;
     clear: both;
 }
+
+body {
+    background-image: url('../img/LayoutBackground2.jpg');
+}
