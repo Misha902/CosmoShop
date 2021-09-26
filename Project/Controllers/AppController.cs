@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using CosmoShop.Data;
 using CosmoShop.Services;
 using CosmoShop.ViewModels;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using CosmoShop.Data.Entities;
 
 namespace CosmoShop.Controllers
 {
@@ -55,9 +58,21 @@ namespace CosmoShop.Controllers
         }
 
         [Authorize]
-        public IActionResult Shop()
+        public async Task<IActionResult> Shop(int page = 1)
         {
-            return View(_context.GetAllProducts());
+            int pageSize = 12;
+
+            IEnumerable<SpaceObject> source = _context.GetAllProducts();
+            var count = source.Count();
+            var items = source.Skip((page - 1) * pageSize).Take(pageSize);
+
+            var pageViewModel = new PageViewModel(count, page, pageSize);
+            var viewModel = new IndexViewModel
+            {
+                PageViewModel = pageViewModel,
+                SpaceObjects = items
+            };
+            return View(viewModel);
         }
         public IActionResult Show(int id)
         {
