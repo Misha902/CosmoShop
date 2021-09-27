@@ -10,94 +10,104 @@ namespace CosmoShop.Data
     {
         public static void Initialize(CosmoShopContext context)
         {
-            if (!context.SpaceObjects.Any())
-            {
-                context.SpaceObjects.AddRange(
-                    
-                    new SpaceObject
+            var planets = new Category() { Name = "Planets"};
+            var stars = new Category() { Name = "Stars" };
+
+            context.SpaceObjects.AddRange(
+                
+                new SpaceObject
                     {
                         Name = "Mercury",
                         Description = "-mercury-",
-                        ImgId = "CO-1",
-                        Price = 100000000000,
+                        ImgId = "pic1",
+                        Price = 10000000000,
                         RotationPeriod = 58.646,
-                        ObservedSatellites = 0
-                    },
-                    new SpaceObject
+                        ObservedSatellites = 0,
+                        Category = planets
+                },
+                new SpaceObject
                     {
                         Name = "Venus",
                         Description = "-venus-",
-                        ImgId = "CO-2",
+                        ImgId = "pic2",
                         Price = 20000000000,
                         RotationPeriod = 243.023,
-                        ObservedSatellites = 0
-                    },
-                    new SpaceObject
+                        ObservedSatellites = 0,
+                        Category = planets
+                },
+                new SpaceObject
                     {
                         Name = "Earth",
                         Description = "We are here",
-                        ImgId = "CO-3",
+                        ImgId = "pic3",
                         Price = 30000000000,
                         RotationPeriod = 0.99726968,
-                        ObservedSatellites = 1
-                    },
-                    new SpaceObject
+                        ObservedSatellites = 1,
+                        Category = planets
+                },
+                new SpaceObject
                     {
                         Name = "Mars",
                         Description = "-mars-",
-                        ImgId = "CO-4",
+                        ImgId = "pic4",
                         Price = 40000000000,
                         RotationPeriod = 1,
-                        ObservedSatellites = 2
-                    },
-                    new SpaceObject
+                        ObservedSatellites = 2,
+                        Category = planets
+                },
+                new SpaceObject
                     {
                         Name = "Jupiter",
                         Description = "-jupiter-",
-                        ImgId = "CO-5",
+                        ImgId = "pic5",
                         Price = 50000000000,
                         RotationPeriod = 0.413541,
-                        ObservedSatellites = 79
-                    },
-                    new SpaceObject
+                        ObservedSatellites = 79,
+                        Category = planets
+                },
+                new SpaceObject
                     {
                         Name = "Saturn",
                         Description = "-saturn-",
-                        ImgId = "CO-6",
+                        ImgId = "pic6",
                         Price = 60000000000,
                         RotationPeriod = 0.43,
-                        ObservedSatellites = 82
-                    },                                     
-                    new SpaceObject
+                        ObservedSatellites = 82,
+                        Category = planets
+                },                                     
+                new SpaceObject
                     {
                         Name = "Uran",
                         Description = "-uran-",
-                        ImgId = "CO-7",
+                        ImgId = "pic7",
                         Price = 70000000000,
                         RotationPeriod = 0.71833,
-                        ObservedSatellites = 27
-                    },
-                    new SpaceObject
+                        ObservedSatellites = 27,
+                        Category = planets
+                },
+                new SpaceObject
                     {
                         Name = "Neptune",
                         Description = "blue",
-                        ImgId = "CO-8",
+                        ImgId = "pic8",
                         Price = 80000000000,
                         RotationPeriod = 0.6653,
-                        ObservedSatellites = 14
+                        ObservedSatellites = 14,
+                        Category = planets
                     },
-                    new SpaceObject
+                new SpaceObject
                     {
                         Name = "Sun",
                         Description = "its very hot",
-                        ImgId = "CO-0",
+                        ImgId = "pic0",
                         Price = 100000000000000,
                         RotationPeriod = 0,
-                        ObservedSatellites = 0
+                        ObservedSatellites = 0,
+                        Category = stars
                     }
-                );
-                context.SaveChanges();
-            }
+            );
+            context.Categories.AddRange(planets, stars);
+            context.SaveChanges();
         }
     }
 }

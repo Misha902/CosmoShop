@@ -7,7 +7,8 @@ namespace CosmoShop.Data
     {
         IEnumerable<SpaceObject> GetAllProducts();
         SpaceObject GetProductById(int id);
-        IEnumerable<SpaceObject> GetProductsByCategory(string category);
+        IEnumerable<SpaceObject> GetProductsByCategory(int category);
+        IEnumerable<Category> GetAllCategories();
         bool SaveChanges();
     }
 }

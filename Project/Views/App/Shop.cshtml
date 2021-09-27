@@ -2,7 +2,57 @@
 
 <div style="width: 100%;overflow:hidden;">
     <div style="float:left; width: 15%">
-        <p>Left</p>
+        @*<form method="post">
+            <p>
+                <label for="category">Choise category:</label>
+                <select name="category" class="glyphicon">
+                    <option value="">All</option>
+                    <option value="Planets">Planets</option>
+                    <option value="Stars">Stars</option>
+                </select>
+            </p>
+            <p>
+            <a asp-action="Shop"
+               class="btn btn-outline-dark">
+                send
+                <i class="glyphicon"></i>
+            </a>
+        </p>
+        </form>*@
+        <form method="get">
+            <div class="form-inline">
+                <label>Name: </label>
+                <input name="name" value="@Model.FilterViewModel.SelectedName" class="form-control" />
+
+                <label>Category: </label>
+                <select name="category" asp-items="Model.FilterViewModel.Categories" class="form-control"></select>
+
+                <input type="submit" value="Filter" class="btn btn-outline-dark" />
+            </div>
+        </form>
+
+        <table>
+            <tr>
+                <th>
+                    <a asp-action="Shop"
+                       asp-route-sortOrder="@(Model.SortViewModel.NameSort)"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-category="@(Model.FilterViewModel.CurrentCategory)">Name</a>
+                </th>
+                <th>
+                    <a asp-action="Shop"
+                       asp-route-sortOrder="@(Model.SortViewModel.PriceSort)"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-category="@(Model.FilterViewModel.CurrentCategory)">Price</a>
+                </th>
+                <th>
+                    <a asp-action="Shop"
+                       asp-route-sortOrder="@(Model.SortViewModel.CategorySort)"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-category="@(Model.FilterViewModel.CurrentCategory)">Category</a>
+                </th>
+            </tr>
+        </table>
     </div>
 
     <div style="float:right; width: 85%">
@@ -10,5 +60,6 @@
         <br>
         @await Html.PartialAsync("PaginationPartial")
     </div>
+</div>
 
         

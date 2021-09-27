@@ -23,15 +23,20 @@ namespace CosmoShop.Data
                 .Where(p => p.Id == id)
                 .FirstOrDefault();
         }
-        public IEnumerable<SpaceObject> GetProductsByCategory(string category)
+        public IEnumerable<SpaceObject> GetProductsByCategory(int category)
         {
             return _context.SpaceObjects
-                           .Where(p => p.Category == category)
+                           .Where(p => p.Category.Id == category)
                            .ToList();
         }
         public bool SaveChanges()
         {
             return _context.SaveChanges() > 1;
         }
+        public IEnumerable<Category> GetAllCategories()
+        {
+            return _context.Categories.ToList();
+        }
+
     }
 }

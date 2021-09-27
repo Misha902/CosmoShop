@@ -14,6 +14,7 @@ namespace CosmoShop.Data
             Database.EnsureCreated();
         }
         public DbSet<SpaceObject> SpaceObjects { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }
     }
 }

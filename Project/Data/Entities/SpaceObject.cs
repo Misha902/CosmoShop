@@ -6,7 +6,7 @@
         public string Type { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Category { get; set; }
+        public Category Category { get; set; }
         public ulong Price { get; set; }
         public string ImgId { get; set; }
         public string WeightShort { get; set; }
