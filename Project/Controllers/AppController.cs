@@ -49,7 +49,7 @@ namespace CosmoShop.Controllers
         {
             int pageSize = 4;
             
-            var spaceObjects = category is null? _context.GetAllProducts() : _context.GetProductsByCategory(Convert.ToInt32(category));
+            var spaceObjects = category is null || category == 0 ? _context.GetAllProducts() : _context.GetProductsByCategory(Convert.ToInt32(category));
             
             if (!String.IsNullOrEmpty(name))
             {

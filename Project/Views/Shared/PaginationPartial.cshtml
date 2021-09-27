@@ -1,18 +1,17 @@
 ﻿@if (Model.PageViewModel.HasPreviousPage)
-{
-    <a asp-action="Shop"
-       asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
-       class="btn btn-outline-dark">
-        <i class="glyphicon glyphicon-chevron-left"></i>
-        Back
-    </a>
-}
+    {
+        <a asp-action="Shop"
+           asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+           class="btn btn-outline-dark">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+        </a>
+    }
 @if (Model.PageViewModel.HasNextPage)
-{
-    <a asp-action="Shop"
-       asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
-       class="btn btn-outline-dark">
-        Forward
-        <i class="glyphicon glyphicon-chevron-right"></i>
-    </a>
-}
+    {
+        <a asp-action="Shop"
+           asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+           class="btn btn-outline-dark">
+            <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+    }
+
