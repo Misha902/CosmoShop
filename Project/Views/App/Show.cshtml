@@ -12,5 +12,9 @@
     </div>
 </div>
 <div>
-    @Html.Raw(Model.Description)
+    <ul>
+        <li>@Model.Description</li>
+        <li>Observed satellites: @Model.ObservedSatellites</li>
+        <li>Rotation period: @Model.RotationPeriod</li>
+    </ul>
 </div>
