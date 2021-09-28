@@ -59,65 +59,22 @@ namespace CosmoShop.Controllers
             var count = spaceObjects.Count();
             var items = spaceObjects.Skip((page - 1) * pageSize).Take(pageSize);
 
-            spaceObjects = sortOrder switch
-            {
-                SortState.NameDesc => spaceObjects.OrderByDescending(s => s.Name),
-                SortState.PriceAsc => spaceObjects.OrderBy(s => s.Price),
-                SortState.PriceDesc => spaceObjects.OrderByDescending(s => s.Price),
-                SortState.CategoryAsc => spaceObjects.OrderBy(s => s.Category.Name),
-                SortState.CategoryDesc => spaceObjects.OrderByDescending(s => s.Category.Name),
-                _ => spaceObjects.OrderBy(s => s.Name),
-            };           
+            //spaceObjects = sortOrder switch
+            //{
+            //    SortState.PriceAsc => spaceObjects.OrderBy(s => s.Price),
+            //    SortState.PriceDesc => spaceObjects.OrderByDescending(s => s.Price),
+            //    _ => spaceObjects.OrderBy(s => s.Name),
+            //};           
 
             IndexViewModel viewModel = new IndexViewModel
             {
                 PageViewModel = new PageViewModel(count, page, pageSize),
-                SortViewModel = new SortViewModel(sortOrder),
+                //SortViewModel = new SortViewModel(sortOrder),
                 FilterViewModel = new FilterViewModel(_context.GetAllCategories().ToList(), category, name),
                 SpaceObjects = items
             };
             return View(viewModel);
-
-            #region test... 
-            //var source = category is null ? _context.GetAllProducts() : _context.GetProductsByCategory(category);
-
-            //var count = source.Count();
-            //var items = source
-            //    .Skip((page - 1) * pageSize)
-            //    .Take(pageSize);
-
-            //var pageViewModel = new PageViewModel(count, page, pageSize);
-            //var viewModel = new IndexViewModel
-            //{
-            //    PageViewModel = pageViewModel,
-            //    SpaceObjects = items,
-            //};
-
-            //return View(viewModel);
-            #endregion
         }
-
-        //[HttpPost]
-        //public async Task<IActionResult> Shop(string category, int page = 1)
-        //{
-        //    int pageSize = 8;
-
-        //    IEnumerable<SpaceObject> source = category is null ? _context.GetAllProducts() : _context.GetProductsByCategory(category);
-
-        //    var count = source.Count();
-        //    var items = source
-        //        .Skip((page - 1) * pageSize)
-        //        .Take(pageSize);
-
-        //    var pageViewModel = new PageViewModel(count, page, pageSize);
-        //    var viewModel = new IndexViewModel
-        //    {
-        //        PageViewModel = pageViewModel,
-        //        SpaceObjects = items
-        //    };
-
-        //    return View(viewModel);
-        //}
         public IActionResult Show(int id)
         {
 

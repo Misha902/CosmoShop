@@ -10,10 +10,10 @@ namespace CosmoShop.TagHelpers
 {
     public class PageLinkTagHelper : TagHelper
     {
-        private IUrlHelperFactory urlHelperFactory;
+        private readonly IUrlHelperFactory _urlHelperFactory;
         public PageLinkTagHelper(IUrlHelperFactory helperFactory)
         {
-            urlHelperFactory = helperFactory;
+            _urlHelperFactory = helperFactory;
         }
         [ViewContext]
         [HtmlAttributeNotBound]
@@ -26,27 +26,18 @@ namespace CosmoShop.TagHelpers
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            IUrlHelper urlHelper = urlHelperFactory.GetUrlHelper(ViewContext);
+            IUrlHelper urlHelper = _urlHelperFactory.GetUrlHelper(ViewContext);
             output.TagName = "div";
 
-            TagBuilder tag = new TagBuilder("ul");
+            var tag = new TagBuilder("ul");
             tag.AddCssClass("pagination");
 
-            TagBuilder currentItem = CreateTag(PageModel.PageNumber, urlHelper);
-
-            if (PageModel.HasPreviousPage)
+            for (int i = 1; i <= PageModel.TotalPages; i++)
             {
-                TagBuilder prevItem = CreateTag(PageModel.PageNumber - 1, urlHelper);
-                tag.InnerHtml.AppendHtml(prevItem);
+                TagBuilder currentItem = CreateTag(i, urlHelper);
+                tag.InnerHtml.AppendHtml(currentItem);
             }
 
-            tag.InnerHtml.AppendHtml(currentItem);
-
-            if (PageModel.HasNextPage)
-            {
-                TagBuilder nextItem = CreateTag(PageModel.PageNumber + 1, urlHelper);
-                tag.InnerHtml.AppendHtml(nextItem);
-            }
             output.Content.AppendHtml(tag);
         }
 

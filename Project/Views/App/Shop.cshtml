@@ -1,6 +1,6 @@
 ﻿@model IndexViewModel
 
-@addTagHelper *, FilterSortPagingApp
+@addTagHelper *, CosmoShop
 
 <div style="width: 100%;overflow:hidden;">
     <div style="float:left; width: 15%">
@@ -11,12 +11,9 @@
         @await Html.PartialAsync("ProductListPartial")
         <br>
 
-        <page-link page-model="Model.PageViewModel" page-action="Index"
+        <page-link page-model="Model.PageViewModel" page-action="Shop"
                    page-url-name="@(Model.FilterViewModel.SelectedName)"
-                   page-url-category="@(Model.FilterViewModel.CurrentCategory)"
-                   page-url-sortorder="@(Model.SortViewModel.Current)"></page-link>
-
-        @await Html.PartialAsync("PaginationPartial")
+                   page-url-category="@(Model.FilterViewModel.CurrentCategory)"></page-link>
     </div>
 </div>
 
