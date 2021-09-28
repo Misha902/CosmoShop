@@ -47,13 +47,13 @@ namespace CosmoShop.Controllers
         public async Task<IActionResult> Shop(int? category, string name, int page = 1,
             SortState sortOrder = SortState.NameAsc)
         {
-            int pageSize = 4;
+            int pageSize = 12;
             
             var spaceObjects = category is null || category == 0 ? _context.GetAllProducts() : _context.GetProductsByCategory(Convert.ToInt32(category));
             
             if (!String.IsNullOrEmpty(name))
             {
-                spaceObjects = spaceObjects.Where(p => p.Name.ToLower().Contains(name.ToLower()));
+                spaceObjects = spaceObjects.Where(p => p.Name.ToLower().Contains(name.ToLower()) || name.ToLower().Contains(p.Name.ToLower()));
             }
 
             var count = spaceObjects.Count();
