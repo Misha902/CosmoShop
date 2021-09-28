@@ -1,12 +1,15 @@
 ﻿<form method="get">
-    <div class="form-group">
-        <label>Name: </label>
-        <input name="name" value="@Model.FilterViewModel.SelectedName" class="form-control" />
+    <div style="padding-left:20px">
+        <div class="card bg-light border-dark p-1">
+            <div class="form-group text-center">
+                <input name="name" value="@Model.FilterViewModel.SelectedName" class="form-control" placeholder="Search" />
 
-        <label>Category: </label>
-        <select name="category" asp-items="Model.FilterViewModel.Categories" class="form-control"></select>
-        <br>
-        <input type="submit" value="Filter" class="btn btn-outline-dark" />
+                <label>Category: </label>
+                <select name="category" asp-items="Model.FilterViewModel.Categories" class="form-control"></select>
+                <br>
+                <button type="submit" class="btn btn-outline-dark px-5">Filter</button>
+            </div>
+        </div>
     </div>
 </form>
 

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CosmoShop.TagHelpers
 {
@@ -42,7 +43,7 @@ namespace CosmoShop.TagHelpers
         }
 
         TagBuilder CreateTag(int pageNumber, IUrlHelper urlHelper)
-        {
+{
             TagBuilder item = new TagBuilder("li");
             TagBuilder link = new TagBuilder("a");
             if (pageNumber == this.PageModel.PageNumber)
