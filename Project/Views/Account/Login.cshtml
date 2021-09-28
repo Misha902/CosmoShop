@@ -1,31 +1,37 @@
 ﻿@model LoginViewModel
-@{
-    ViewBag.Title = "Log1n";
-}
 
 <div class="row">
-    <div class="col-md-6 offset-3">
-        <form method="post" asp-controller="Account" asp-action="Login">
-            @Html.ValidationSummary(true)
-            <div>
-                <label asp-for="Username"></label><br />
-                <input asp-for="Username" />
-                <span asp-validation-for="Username"></span>
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-light border-dark" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <form method="post" asp-controller="Account" asp-action="Login">
+                            @Html.ValidationSummary(true)
+                            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                            <div class="form-label">
+                                <input asp-for="Username" class="form-control" placeholder="Username" />
+                                <span asp-validation-for="Username"></span>
+                            </div>
+                            <div class="form-label">
+                                <input asp-for="Password" class="form-control" type="password" placeholder="Password" />
+                                <span asp-validation-for="Password"></span>
+                            </div>
+                            <div class="form-check-label">
+                                <input asp-for="RememberMe" type="checkbox" />
+                                <label asp-for="RememberMe">Remember me?</label>
+                            </div>
+                            <div>
+                                <input type="submit" value="Sign in" class="btn btn-outline-dark px-5" />
+                            </div>
+                            <br>
+                            <div>
+                                <p class="mb-0">Don't have an account? <a href="~/Account/Register" class=" fw-bold link-dark">Create new</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label asp-for="Password"></label><br />
-                <input asp-for="Password" type="password" />
-                <span asp-validation-for="Password"></span>
-            </div>
-            <div>
-                <input asp-for="RememberMe" type="checkbox" />
-                <label asp-for="RememberMe">Remember me?</label>
-            </div>
-            <div>
-                <br />
-                <input type="submit" value="Login" class="btn btn-primary" />
-            </div>
-            <a href="~/Account/Register">Registration</a>
-        </form>
+        </div>
     </div>
 </div>
